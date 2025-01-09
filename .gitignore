@@ -1,0 +1,13 @@
+# Unity関連の一時ファイルや生成物を無視
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+UserSettings/
+Logs/
+.vs/
+*.csproj
+*.sln
+*.user
+.DS_Store
