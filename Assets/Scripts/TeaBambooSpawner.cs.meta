@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: de7c5fd8ad2d3dc4fadc872cb8d600f1
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - bambooPrefab: {fileID: 8929373587937979319, guid: ed7a09e069fecf245b203ea5434f922d, type: 3}
+  - teaSurface: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
