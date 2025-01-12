@@ -7,57 +7,94 @@ using UnityEngine.SceneManagement;
 public class ResultController : MonoBehaviour
 {
     public TextMeshProUGUI resultText;
-    public GameObject bambooPrefab;  // ’ƒ’ŒƒvƒŒƒnƒu
-    public Transform bambooParent;  // ’ƒ’Œ‚ğ”z’u‚·‚éeƒIƒuƒWƒFƒNƒg
-    public int maxBamboo = 10;  // Å‘å’ƒ’Œ”
-    public LineRenderer lineRenderer;  // ¯À•`‰æ—p
+    public GameObject bambooPrefab;  // ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½nï¿½u
+    public Transform bambooParent;  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½zï¿½uï¿½ï¿½ï¿½ï¿½eï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½g
+    public int maxBamboo = 10;  // ï¿½Å‘å’ƒï¿½ï¿½ï¿½ï¿½
+    public LineRenderer lineRenderer;  // ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½ï¿½p
+    public float fadeInDuration = 2.0f; // ï¿½tï¿½Fï¿½[ï¿½hï¿½Cï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½ï¿½éï¿½ï¿½
+
+    public BambooDataSetting bambooData; // ScriptableObjectã®å‚ç…§
 
     void Start()
     {
-        // ’ƒ—t—Ê‚ğæ“¾
+
+        if (bambooData == null)
+        {
+            Debug.LogError("ScriptableObject not found.");
+        }
+
+        // ï¿½ï¿½ï¿½tï¿½Ê‚ï¿½ï¿½æ“¾
         float teaAmount = PlayerPrefs.GetFloat("TeaAmount", 0);
         resultText.text = $"{teaAmount:F1} g";
 
-        // ’ƒ’Œ‚ğ¶¬
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ğ¶ï¿½
         int bambooCount = Mathf.Clamp(Mathf.FloorToInt(teaAmount / 10), 1, maxBamboo);
-        GenerateBamboo(bambooCount);
+        // GenerateBamboo(bambooCount);
+        int index = SelectIndex();
+        GenerateBamboo(index);
 
-        // ¯À‚ğ•`‰æ
+        lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer.startWidth = 0.0f;
+        lineRenderer.endWidth = 0.0f;
+
+
+        // sleep 4sec
+        StartCoroutine(WaitAndDrawConstellation(4.0f));
+
+
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½ï¿½
+        // DrawConstellation();
+    }
+
+    IEnumerator WaitAndDrawConstellation(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
         DrawConstellation();
     }
 
-    void GenerateBamboo(int count)
+    int SelectIndex()
     {
-        for (int i = 0; i < count; i++)
+        return 0;
+    }
+
+    void GenerateBamboo(int index)
+    {
+        for (int i = 0; i < bambooData.BambooDataArray[index].BambooCount; i++)
         {
-            Vector3 randomPosition = new Vector3(
-                Random.Range(-5f, 5f),
-                Random.Range(-3f, 3f),
-                0
+            Vector3 Position = new Vector3(
+                bambooData.BambooDataArray[index].Position[i].x,
+                bambooData.BambooDataArray[index].Position[i].y,
+                bambooData.BambooDataArray[index].Position[i].z
             );
 
-            GameObject bamboo = Instantiate(bambooPrefab, randomPosition, Quaternion.identity, bambooParent);
+            GameObject bamboo = Instantiate(bambooPrefab, Position, Quaternion.identity, bambooParent);
             bamboo.tag = "Bamboo";
         }
     }
 
     void DrawConstellation()
     {
-        // ’ƒ’Œ‚ÌˆÊ’u‚ğæ“¾
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ÌˆÊ’uï¿½ï¿½ï¿½æ“¾
+        lineRenderer.startWidth = 0.05f;
+        lineRenderer.endWidth = 0.05f;
         GameObject[] bamboos = GameObject.FindGameObjectsWithTag("Bamboo");
-        if (bamboos.Length < 2) return; // ’ƒ’Œ‚ª2‚ÂˆÈã‚È‚¢‚Æ¯À‚ğ•`‰æ‚µ‚È‚¢
+        if (bamboos.Length < 2) return; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2ï¿½ÂˆÈï¿½È‚ï¿½ï¿½Æï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½æ‚µï¿½È‚ï¿½
 
         Vector3[] positions = new Vector3[bamboos.Length];
 
-        for (int i = 0; i < bamboos.Length; i++)
+        for (int i = 1; i < bamboos.Length; i++)
         {
-            positions[i] = bamboos[i].transform.position;
+            positions[i - 1] = bamboos[i].transform.position;
+            // Debug.Log(positions[i]);
         }
 
-        // LineRenderer‚ğg—p‚µ‚Ä¯À‚ğ•`‰æ
-        lineRenderer.positionCount = positions.Length;
+        // LineRendererï¿½ï¿½ï¿½gï¿½pï¿½ï¿½ï¿½Äï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½ï¿½
+        lineRenderer.positionCount = positions.Length - 1;
         lineRenderer.SetPositions(positions);
+
+        // StartCoroutine(FadeIn(lineRenderer, fadeInDuration));
     }
+
 
     public void RestartGame()
     {

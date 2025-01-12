@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BambooFloat : MonoBehaviour
 {
-    public float floatSpeed = 1.0f;
+    public float floatSpeed = 0.5f;
     public float floatRange = 0.1f;
     [SerializeField] public Vector3 startPosition;
     public Transform sphere; // ← 球体オブジェクトのTransform
@@ -35,6 +35,7 @@ public class BambooFloat : MonoBehaviour
     void Update()
     {
         float yOffset = Mathf.Sin(Time.time * floatSpeed) * floatRange;
-        transform.position = startPosition + new Vector3(0, yOffset, 0);
+        float xOffset = Mathf.Sin(Time.time * floatSpeed) * floatRange;
+        transform.position = startPosition + new Vector3(xOffset, yOffset, 0);
     }
 }
