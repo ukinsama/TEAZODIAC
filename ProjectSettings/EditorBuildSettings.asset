@@ -9,7 +9,10 @@ EditorBuildSettings:
     path: Assets/StartScene.unity
     guid: ed9dd098280a6d147bcf64fccc6314cc
   - enabled: 1
-    path: Assets/MiniGameCanvas.unity
+    path: Assets/StoryScene.unity
+    guid: ed6bb2303f75e574fa9b3b7e81e47b86
+  - enabled: 1
+    path: Assets/MiniGameScene.unity
     guid: 09023242d8865244ca47641d2ba5314d
   - enabled: 1
     path: Assets/ResultScene.unity
