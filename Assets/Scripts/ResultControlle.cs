@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class ResultController : MonoBehaviour
 {
     public TextMeshProUGUI resultText;
+    public TextMeshProUGUI ConstellationText;
     public GameObject bambooPrefab;  // �����v���n�u
     public Transform bambooParent;  // ������z�u����e�I�u�W�F�N�g
     public int maxBamboo = 10;  // �ő咃����
@@ -15,8 +16,10 @@ public class ResultController : MonoBehaviour
 
     public BambooDataSetting bambooData; // ScriptableObjectの参照
 
+
     void Start()
     {
+        ConstellationText.text = "";
 
         if (bambooData == null)
         {
@@ -39,22 +42,29 @@ public class ResultController : MonoBehaviour
 
 
         // sleep 4sec
-        StartCoroutine(WaitAndDrawConstellation(4.0f));
+        StartCoroutine(WaitAndDrawConstellation(4.0f, index));
 
+        StartCoroutine(WaitAndRestartGame(10.0f));
 
         // ������`��
         // DrawConstellation();
     }
 
-    IEnumerator WaitAndDrawConstellation(float waitTime)
+    IEnumerator WaitAndDrawConstellation(float waitTime, int index)
     {
         yield return new WaitForSeconds(waitTime);
-        DrawConstellation();
+        DrawConstellation(index);
+    }
+
+    IEnumerator WaitAndRestartGame(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        RestartGame();
     }
 
     int SelectIndex()
     {
-        return 0;
+        return 1;
     }
 
     void GenerateBamboo(int index)
@@ -70,9 +80,10 @@ public class ResultController : MonoBehaviour
             GameObject bamboo = Instantiate(bambooPrefab, Position, Quaternion.identity, bambooParent);
             bamboo.tag = "Bamboo";
         }
+        bambooData.BambooDataArray[index].IsAppear = true;
     }
 
-    void DrawConstellation()
+    void DrawConstellation(int index)
     {
         // �����̈ʒu���擾
         lineRenderer.startWidth = 0.05f;
@@ -91,6 +102,7 @@ public class ResultController : MonoBehaviour
         // LineRenderer���g�p���Đ�����`��
         lineRenderer.positionCount = positions.Length - 1;
         lineRenderer.SetPositions(positions);
+        ConstellationText.text = bambooData.BambooDataArray[index].Name;
 
         // StartCoroutine(FadeIn(lineRenderer, fadeInDuration));
     }

@@ -13,8 +13,105 @@ MonoBehaviour:
   m_Name: Data
   m_EditorClassIdentifier: 
   BambooDataArray:
-  - Name: Star
+  - Name: Triangle
+    Description: Simple Shape.
+    BambooCount: 4
+    Position:
+    - {x: 0, y: 6, z: 0}
+    - {x: -5, y: -3, z: 0}
+    - {x: 5, y: -3, z: 0}
+    - {x: 0, y: 6, z: 0}
+    IsAppear: 0
+  - Name: Canis Major
+    Description: Not just a line.
+    BambooCount: 5
+    Position:
+    - {x: -2, y: 5, z: 0}
+    - {x: 0, y: 3, z: 0}
+    - {x: 2, y: 1, z: 0}
+    - {x: 4, y: -1, z: 0}
+    - {x: 5, y: -2, z: 0}
+    IsAppear: 1
+  - Name: Cygnus
     Description: 
+    BambooCount: 6
+    Position:
+    - {x: 0, y: 5, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: -5, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: 4, y: 1, z: 0}
+    - {x: -4, y: 1, z: 0}
+    IsAppear: 0
+  - Name: Lyra
+    Description: 
+    BambooCount: 6
+    Position:
+    - {x: 0, y: 5, z: 0}
+    - {x: -2, y: 3, z: 0}
+    - {x: 0, y: 2, z: 0}
+    - {x: -2, y: 1, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: -2, y: 3, z: 0}
+    IsAppear: 0
+  - Name: Scorpius
+    Description: 
+    BambooCount: 7
+    Position:
+    - {x: -3, y: 4, z: 0}
+    - {x: -2, y: 2, z: 0}
+    - {x: 0, y: 3, z: 0}
+    - {x: 0, y: 1, z: 0}
+    - {x: 2, y: 0, z: 0}
+    - {x: 3, y: -1, z: 0}
+    - {x: 4, y: -3, z: 0}
+    IsAppear: 0
+  - Name: Summer Triangle
+    Description: Simple and Bright.
+    BambooCount: 4
+    Position:
+    - {x: 0, y: 5, z: 0}
+    - {x: -4, y: 3, z: 0}
+    - {x: 2, y: -2, z: 0}
+    - {x: 0, y: 5, z: 0}
+    IsAppear: 0
+  - Name: Cassiopeia
+    Description: 
+    BambooCount: 5
+    Position:
+    - {x: -2, y: 0, z: 0}
+    - {x: -1, y: 3, z: 0}
+    - {x: 0, y: 1, z: 0}
+    - {x: 0, y: 3, z: 0}
+    - {x: 1, y: 5, z: 0}
+    IsAppear: 0
+  - Name: Ursa Major
+    Description: 
+    BambooCount: 7
+    Position:
+    - {x: 3, y: 5.5, z: 0}
+    - {x: 3, y: 3.5, z: 0}
+    - {x: 1, y: 2.5, z: 0}
+    - {x: 0, y: 0.5, z: 0}
+    - {x: -2, y: -0.5, z: 0}
+    - {x: -4, y: -2.5, z: 0}
+    - {x: -5, y: -3.5, z: 0}
+    IsAppear: 0
+  - Name: Orion
+    Description: 
+    BambooCount: 8
+    Position:
+    - {x: -3, y: 4, z: 0}
+    - {x: -2, y: 3, z: 0}
+    - {x: -1, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: 1, y: 0, z: 0}
+    - {x: 2, y: -3, z: 0}
+    - {x: 3, y: -4, z: 0}
+    - {x: -3, y: 4, z: 0}
+    IsAppear: 0
+  - Name: Star
+    Description: You are so lucky.
     BambooCount: 11
     Position:
     - {x: 0, y: 5, z: 0}
@@ -28,3 +125,4 @@ MonoBehaviour:
     - {x: 4.755, y: 1.545, z: 0}
     - {x: 1.122, y: 1.545, z: 0}
     - {x: 0, y: 5, z: 0}
+    IsAppear: 0

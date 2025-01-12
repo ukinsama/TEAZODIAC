@@ -9,6 +9,8 @@ public class BambooData
     public int BambooCount;
     public Vector3[] Position;
 
+    public bool IsAppear = false;
+
 }
 
 
