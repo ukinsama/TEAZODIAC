@@ -574,6 +574,7 @@ MonoBehaviour:
   maxBamboo: 10
   lineRenderer: {fileID: 0}
   fadeInDuration: 2
+  bambooData: {fileID: 11400000, guid: 009a175b7bf51184682b574e69a3aadd, type: 2}
 --- !u!120 &1213279556
 LineRenderer:
   serializedVersion: 2
