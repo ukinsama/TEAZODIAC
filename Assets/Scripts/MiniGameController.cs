@@ -1,76 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-using UnityEngine.SceneManagement;
 
-public class MiniGameController : MonoBehaviour
+public class MinigameController : MonoBehaviour
 {
-    public Slider teaSlider;
-    public TextMeshProUGUI resultText;
-    public float idealMin = 45f;
-    public float idealMax = 55f;
-    public string nextSceneName = "ResultScene";
+    public QTEController qteController; // QTEの制御スクリプトへの参照
+    public int totalRounds = 5;         // ミニゲーム全体のラウンド数
+    public string resultSceneName = "ResultScene"; // 結果画面へのシーン名
 
-    private bool isMoving = true;
-    private bool isMovingRight = true;
-    public float sliderSpeed = 60f;
+    private int currentRound = 0;      // 現在のラウンド
+    private int totalScore = 0;        // 総スコア
 
     void Start()
     {
-        teaSlider.value = 0;
+        StartNextRound();
     }
 
-    void Update()
+    public void StartNextRound()
     {
-        if (isMoving)
+        if (currentRound < totalRounds)
         {
-            MoveSlider();
-        }
-    }
-
-    private void MoveSlider()
-    {
-        if (isMovingRight)
-        {
-            teaSlider.value += sliderSpeed * Time.deltaTime;
-            if (teaSlider.value >= teaSlider.maxValue)
-            {
-                isMovingRight = false;
-            }
+            currentRound++;
+            qteController.StartQTE();
         }
         else
         {
-            teaSlider.value -= sliderSpeed * Time.deltaTime;
-            if (teaSlider.value <= teaSlider.minValue)
-            {
-                isMovingRight = true;
-            }
+            EndGame();
         }
     }
 
-    public void StopSlider()
+    public void AddScore(int score)
     {
-        isMoving = false;
-        float teaAmount = teaSlider.value;
-
-        if (teaAmount >= idealMin && teaAmount <= idealMax)
-        {
-            resultText.text = "Perfect!";
-        }
-        else
-        {
-            resultText.text = "Try Again!";
-        }
-
-        PlayerPrefs.SetFloat("TeaAmount", teaAmount);
-        Invoke("GoToNextScene", 2f);
+        totalScore += score;
     }
 
-    private void GoToNextScene()
+    private void EndGame()
     {
-        SceneManager.LoadScene(nextSceneName);
+        Debug.Log("Game Over! Total Score: " + totalScore);
+        PlayerPrefs.SetInt("TotalScore", totalScore); // スコアを保存
+        UnityEngine.SceneManagement.SceneManager.LoadScene(resultSceneName); // 結果画面へ
     }
 }
-
