@@ -208,7 +208,7 @@ Transform:
   m_GameObject: {fileID: 46478389}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 127, y: 237, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   qteController: {fileID: 1181154879}
-  totalRounds: 8
+  totalRounds: 12
   resultSceneName: ResultScene
 --- !u!4 &358274492
 Transform:
@@ -388,7 +388,6 @@ MonoBehaviour:
   canvasTransform: {fileID: 1545506507}
   timerText: {fileID: 6759835173579552040, guid: b1f34459bbfeea34eb87982946558624, type: 3}
   minigameController: {fileID: 358274491}
-  clickEffectPrefab: {fileID: 8966753706308338118, guid: 648bb0e557042234ea53e7d5c71f5ba8, type: 3}
   maxTime: 2
 --- !u!4 &1181154880
 Transform:
@@ -476,7 +475,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
