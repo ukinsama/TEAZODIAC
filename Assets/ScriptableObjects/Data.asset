@@ -23,6 +23,9 @@ MonoBehaviour:
     - {x: 5, y: -3, z: 0}
     - {x: 0, y: 6, z: 0}
     sprite: {fileID: 21300000, guid: 92c73fdcf2fa36242998b4b9776dcb82, type: 3}
+    weight_pool1: 10
+    weight_pool2: 5
+    weight_pool3: 1
     IsAppear: 1
   - Name: Summer Triangle
     Rarity: Common
@@ -34,6 +37,9 @@ MonoBehaviour:
     - {x: 2, y: -2, z: 0}
     - {x: 0, y: 5, z: 0}
     sprite: {fileID: 21300000, guid: b3e2a0a0b7446f048a3563881436b0d9, type: 3}
+    weight_pool1: 10
+    weight_pool2: 5
+    weight_pool3: 1
     IsAppear: 1
   - Name: Cassiopeia
     Rarity: Common
@@ -46,6 +52,9 @@ MonoBehaviour:
     - {x: 0, y: 3, z: 0}
     - {x: 2, y: 2, z: 0}
     sprite: {fileID: 21300000, guid: 0db39924497b5924ebca440b5ee14a11, type: 3}
+    weight_pool1: 10
+    weight_pool2: 5
+    weight_pool3: 1
     IsAppear: 1
   - Name: Lyra
     Rarity: Uncommon
@@ -59,6 +68,9 @@ MonoBehaviour:
     - {x: -2, y: 1, z: 0}
     - {x: -2, y: 3, z: 0}
     sprite: {fileID: 21300000, guid: 7e2ec4f62fb27164f80f78881f5e94e0, type: 3}
+    weight_pool1: 5
+    weight_pool2: 10
+    weight_pool3: 3
     IsAppear: 1
   - Name: Cygnus
     Rarity: Uncommon
@@ -73,6 +85,9 @@ MonoBehaviour:
     - {x: 0, y: 0, z: 0}
     - {x: -4, y: 1, z: 0}
     sprite: {fileID: 21300000, guid: 18816cdb9a1441346a316a70c84ae677, type: 3}
+    weight_pool1: 5
+    weight_pool2: 10
+    weight_pool3: 3
     IsAppear: 1
   - Name: Orion
     Rarity: Uncommon
@@ -88,6 +103,9 @@ MonoBehaviour:
     - {x: -5, y: 2, z: 0}
     - {x: -3, y: 4, z: 0}
     sprite: {fileID: 21300000, guid: 8f4fe878b5d6f004cb9de925f7cd7e85, type: 3}
+    weight_pool1: 5
+    weight_pool2: 10
+    weight_pool3: 3
     IsAppear: 1
   - Name: Ursa Major
     Rarity: Rare
@@ -103,6 +121,9 @@ MonoBehaviour:
     - {x: 3, y: 0.25, z: 0}
     - {x: 0, y: 0.5, z: 0}
     sprite: {fileID: 21300000, guid: 569531bff3f797243bf758e61df58bf6, type: 3}
+    weight_pool1: 0
+    weight_pool2: 0
+    weight_pool3: 0
     IsAppear: 1
   - Name: Scorpius
     Rarity: Rare
@@ -120,6 +141,9 @@ MonoBehaviour:
     - {x: 3, y: 4, z: 0}
     - {x: 4, y: 3, z: 0}
     sprite: {fileID: 21300000, guid: 9eaa71c3c6aa3d646ab72ca46e5aaadf, type: 3}
+    weight_pool1: 2
+    weight_pool2: 8
+    weight_pool3: 8
     IsAppear: 1
   - Name: Canis Major
     Rarity: Super Rare
@@ -139,6 +163,9 @@ MonoBehaviour:
     - {x: -1, y: -2, z: 0}
     - {x: 4, y: -2.2, z: 0}
     sprite: {fileID: 21300000, guid: 6355f00de935e744aa089bc447d4d26a, type: 3}
+    weight_pool1: 1
+    weight_pool2: 4
+    weight_pool3: 15
     IsAppear: 1
   - Name: Star
     Rarity: Super Rare
@@ -157,4 +184,7 @@ MonoBehaviour:
     - {x: 1.122, y: 1.545, z: 0}
     - {x: 0, y: 5, z: 0}
     sprite: {fileID: 21300000, guid: 2a73df2f824114b439ab55944242f459, type: 3}
+    weight_pool1: 1
+    weight_pool2: 4
+    weight_pool3: 15
     IsAppear: 1

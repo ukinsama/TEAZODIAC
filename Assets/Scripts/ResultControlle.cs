@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEditor.Search;
 
 public class ResultController : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class ResultController : MonoBehaviour
     public BambooDataSetting bambooData;
     public AudioClip bambooSound;
 
+    public ScoreScriptable score;
+
 
     void Start()
     {
@@ -30,10 +33,8 @@ public class ResultController : MonoBehaviour
             Debug.LogError("ScriptableObject not found.");
         }
 
-
-
         // int bambooCount = Mathf.Clamp(Mathf.FloorToInt(teaAmount / 10), 1, maxBamboo);
-        int index = SelectIndex();
+        int index = SelectIndex(score.score);
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.startWidth = 0.0f;
         lineRenderer.endWidth = 0.0f;
@@ -65,12 +66,58 @@ public class ResultController : MonoBehaviour
         RestartGame();
     }
 
-    int SelectIndex()
+    int SelectIndex(int score)
     {
+        List<LotteryItem<int>> indexList = new();
+        if (score <= 300)
+        {
+            for (int i = 0; i < bambooData.BambooDataArray.Length; i++)
+            {
+                if (bambooData.BambooDataArray[i].IsAppear)
+                {
+                    indexList.Add(new LotteryItem<int>(i, bambooData.BambooDataArray[i].weight_pool1 / 2));
+                }
+                else
+                {
+                    indexList.Add(new LotteryItem<int>(i, bambooData.BambooDataArray[i].weight_pool1));
+                }
+            }
+        }
+        else if (score <= 500)
+        {
+            for (int i = 0; i < bambooData.BambooDataArray.Length; i++)
+            {
+                if (bambooData.BambooDataArray[i].IsAppear)
+                {
+                    indexList.Add(new LotteryItem<int>(i, bambooData.BambooDataArray[i].weight_pool2 / 2));
+                }
+                else
+                {
+                    indexList.Add(new LotteryItem<int>(i, bambooData.BambooDataArray[i].weight_pool2));
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < bambooData.BambooDataArray.Length; i++)
+            {
+                if (bambooData.BambooDataArray[i].IsAppear)
+                {
+                    indexList.Add(new LotteryItem<int>(i, bambooData.BambooDataArray[i].weight_pool3 / 2));
+                }
+                else
+                {
+                    indexList.Add(new LotteryItem<int>(i, bambooData.BambooDataArray[i].weight_pool3));
+                }
+            }
+
+        }
+        int index = RandomUtil.SelectOne(indexList);
+        return index;
         // 0 ~ 9
-        int index = UnityEngine.Random.Range(0, 10);
+        // int index = UnityEngine.Random.Range(0, 10);
         // return index;
-        return 8;
+        // return 8;
 
     }
 
@@ -164,8 +211,9 @@ public class ResultController : MonoBehaviour
     {
         ConstellationText.text = bambooData.BambooDataArray[index].Name;
         RareText.text = bambooData.BambooDataArray[index].Rarity;
-        float teaAmount = PlayerPrefs.GetFloat("TeaAmount", 0);
-        resultText.text = $"{teaAmount:F1} g";
+        // float teaAmount = PlayerPrefs.GetFloat("TeaAmount", 0);
+        int scorenum = score.score;
+        resultText.text = $"Your score is {scorenum}.";
 
     }
 

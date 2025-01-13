@@ -10,6 +10,8 @@ public class MinigameController : MonoBehaviour
     private int currentRound = 0;
     private int totalScore = 0;
 
+    public ScoreScriptable score;
+
     void Start()
     {
         Debug.Log($"Total Rounds: {totalRounds}");
@@ -64,6 +66,7 @@ public class MinigameController : MonoBehaviour
     {
         Debug.Log("Game Over! Total Score: " + totalScore);
         PlayerPrefs.SetInt("TotalScore", totalScore);
+        score.score = totalScore;
 
         Debug.Log($"Saved Score in PlayerPrefs: {PlayerPrefs.GetInt("TotalScore", -1)}");
 

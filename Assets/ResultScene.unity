@@ -397,7 +397,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 752, y: 329}
+  m_AnchoredPosition: {x: 718, y: 329}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &698094425
@@ -714,6 +714,7 @@ MonoBehaviour:
   fadeInDuration: 2
   bambooData: {fileID: 11400000, guid: 009a175b7bf51184682b574e69a3aadd, type: 2}
   bambooSound: {fileID: 8300000, guid: 54b1d23dcdf7b4d45bd08fd9d6ae9d53, type: 3}
+  score: {fileID: 11400000, guid: bd4492a34383197488e255862e40490a, type: 2}
 --- !u!120 &1213279556
 LineRenderer:
   serializedVersion: 2

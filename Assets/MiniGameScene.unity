@@ -246,6 +246,7 @@ MonoBehaviour:
   qteController: {fileID: 1181154879}
   totalRounds: 5
   resultSceneName: ResultScene
+  score: {fileID: 11400000, guid: bd4492a34383197488e255862e40490a, type: 2}
 --- !u!4 &358274492
 Transform:
   m_ObjectHideFlags: 0
