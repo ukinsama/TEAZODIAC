@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BambooDataArray:
   - Name: Triangle
+    Rarity: Common
     Description: Simple Shape.
     BambooCount: 4
     Position:
@@ -22,7 +23,18 @@ MonoBehaviour:
     - {x: 5, y: -3, z: 0}
     - {x: 0, y: 6, z: 0}
     IsAppear: 0
+  - Name: Summer Triangle
+    Rarity: Common
+    Description: Simple and Bright.
+    BambooCount: 4
+    Position:
+    - {x: 0, y: 5, z: 0}
+    - {x: -4, y: 3, z: 0}
+    - {x: 2, y: -2, z: 0}
+    - {x: 0, y: 5, z: 0}
+    IsAppear: 1
   - Name: Canis Major
+    Rarity: Common
     Description: Not just a line.
     BambooCount: 5
     Position:
@@ -32,18 +44,19 @@ MonoBehaviour:
     - {x: 4, y: -1, z: 0}
     - {x: 5, y: -2, z: 0}
     IsAppear: 1
-  - Name: Cygnus
+  - Name: Cassiopeia
+    Rarity: Uncommon
     Description: 
-    BambooCount: 6
+    BambooCount: 5
     Position:
-    - {x: 0, y: 5, z: 0}
-    - {x: 0, y: 0, z: 0}
-    - {x: 0, y: -5, z: 0}
-    - {x: 0, y: 0, z: 0}
-    - {x: 4, y: 1, z: 0}
-    - {x: -4, y: 1, z: 0}
-    IsAppear: 0
+    - {x: -2, y: 0, z: 0}
+    - {x: -1, y: 3, z: 0}
+    - {x: 0, y: 1, z: 0}
+    - {x: 0, y: 3, z: 0}
+    - {x: 1, y: 5, z: 0}
+    IsAppear: 1
   - Name: Lyra
+    Rarity: Uncommon
     Description: 
     BambooCount: 6
     Position:
@@ -53,8 +66,21 @@ MonoBehaviour:
     - {x: -2, y: 1, z: 0}
     - {x: 0, y: 0, z: 0}
     - {x: -2, y: 3, z: 0}
-    IsAppear: 0
+    IsAppear: 1
+  - Name: Cygnus
+    Rarity: Uncommon
+    Description: 
+    BambooCount: 6
+    Position:
+    - {x: 0, y: 5, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: -5, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: 4, y: 1, z: 0}
+    - {x: -4, y: 1, z: 0}
+    IsAppear: 1
   - Name: Scorpius
+    Rarity: Rare
     Description: 
     BambooCount: 7
     Position:
@@ -65,27 +91,9 @@ MonoBehaviour:
     - {x: 2, y: 0, z: 0}
     - {x: 3, y: -1, z: 0}
     - {x: 4, y: -3, z: 0}
-    IsAppear: 0
-  - Name: Summer Triangle
-    Description: Simple and Bright.
-    BambooCount: 4
-    Position:
-    - {x: 0, y: 5, z: 0}
-    - {x: -4, y: 3, z: 0}
-    - {x: 2, y: -2, z: 0}
-    - {x: 0, y: 5, z: 0}
-    IsAppear: 0
-  - Name: Cassiopeia
-    Description: 
-    BambooCount: 5
-    Position:
-    - {x: -2, y: 0, z: 0}
-    - {x: -1, y: 3, z: 0}
-    - {x: 0, y: 1, z: 0}
-    - {x: 0, y: 3, z: 0}
-    - {x: 1, y: 5, z: 0}
-    IsAppear: 0
+    IsAppear: 1
   - Name: Ursa Major
+    Rarity: Rare
     Description: 
     BambooCount: 7
     Position:
@@ -98,6 +106,7 @@ MonoBehaviour:
     - {x: -5, y: -3.5, z: 0}
     IsAppear: 0
   - Name: Orion
+    Rarity: Rare
     Description: 
     BambooCount: 8
     Position:
@@ -111,6 +120,7 @@ MonoBehaviour:
     - {x: -3, y: 4, z: 0}
     IsAppear: 0
   - Name: Star
+    Rarity: Super Rare
     Description: You are so lucky.
     BambooCount: 11
     Position:

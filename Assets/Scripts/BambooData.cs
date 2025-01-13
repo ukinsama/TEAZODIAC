@@ -5,6 +5,7 @@ using UnityEngine;
 public class BambooData
 {
     public string Name;
+    public string Rarity;
     public string Description;
     public int BambooCount;
     public Vector3[] Position;

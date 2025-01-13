@@ -3,37 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System;
 
 public class ResultController : MonoBehaviour
 {
     public TextMeshProUGUI resultText;
     public TextMeshProUGUI ConstellationText;
-    public GameObject bambooPrefab;  // �����v���n�u
-    public Transform bambooParent;  // ������z�u����e�I�u�W�F�N�g
-    public int maxBamboo = 10;  // �ő咃����
-    public LineRenderer lineRenderer;  // �����`��p
-    public float fadeInDuration = 2.0f; // �t�F�[�h�C���ɂ����鎞��
-
-    public BambooDataSetting bambooData; // ScriptableObjectの参照
+    public TextMeshProUGUI RareText;
+    public GameObject bambooPrefab;
+    public Transform bambooParent;
+    public int maxBamboo = 10;
+    public LineRenderer lineRenderer;
+    public float fadeInDuration = 2.0f;
+    public BambooDataSetting bambooData;
 
 
     void Start()
     {
         ConstellationText.text = "";
+        RareText.text = "";
+        resultText.text = "";
 
         if (bambooData == null)
         {
             Debug.LogError("ScriptableObject not found.");
         }
 
-        // ���t�ʂ��擾
-        float teaAmount = PlayerPrefs.GetFloat("TeaAmount", 0);
-        resultText.text = $"{teaAmount:F1} g";
 
-        // �����𐶐�
-        int bambooCount = Mathf.Clamp(Mathf.FloorToInt(teaAmount / 10), 1, maxBamboo);
-        // GenerateBamboo(bambooCount);
+
+        // int bambooCount = Mathf.Clamp(Mathf.FloorToInt(teaAmount / 10), 1, maxBamboo);
         int index = SelectIndex();
+
         GenerateBamboo(index);
 
         lineRenderer = GetComponent<LineRenderer>();
@@ -46,8 +46,13 @@ public class ResultController : MonoBehaviour
 
         StartCoroutine(WaitAndRestartGame(10.0f));
 
-        // ������`��
         // DrawConstellation();
+    }
+
+    IEnumerator WaitAndGenerateBamboo(float waitTime, int index)
+    {
+        yield return new WaitForSeconds(waitTime);
+        GenerateBamboo(index);
     }
 
     IEnumerator WaitAndDrawConstellation(float waitTime, int index)
@@ -83,13 +88,30 @@ public class ResultController : MonoBehaviour
         bambooData.BambooDataArray[index].IsAppear = true;
     }
 
+    IEnumerator GenerateBambooGradually(int index)
+    {
+        for (int i = 0; i < bambooData.BambooDataArray[index].BambooCount; i++)
+        {
+            Vector3 position = new Vector3(
+                bambooData.BambooDataArray[index].Position[i].x,
+                bambooData.BambooDataArray[index].Position[i].y,
+                bambooData.BambooDataArray[index].Position[i].z
+            );
+
+            GameObject bamboo = Instantiate(bambooPrefab, position, Quaternion.identity, bambooParent);
+            bamboo.tag = "Bamboo";
+
+            yield return new WaitForSeconds(0.2f);
+        }
+        bambooData.BambooDataArray[index].IsAppear = true;
+    }
+
     void DrawConstellation(int index)
     {
-        // �����̈ʒu���擾
         lineRenderer.startWidth = 0.05f;
         lineRenderer.endWidth = 0.05f;
         GameObject[] bamboos = GameObject.FindGameObjectsWithTag("Bamboo");
-        if (bamboos.Length < 2) return; // ������2�ȏ�Ȃ��Ɛ�����`�悵�Ȃ�
+        if (bamboos.Length < 2) return;
 
         Vector3[] positions = new Vector3[bamboos.Length];
 
@@ -99,12 +121,27 @@ public class ResultController : MonoBehaviour
             // Debug.Log(positions[i]);
         }
 
-        // LineRenderer���g�p���Đ�����`��
         lineRenderer.positionCount = positions.Length - 1;
         lineRenderer.SetPositions(positions);
-        ConstellationText.text = bambooData.BambooDataArray[index].Name;
+
+
+        ChangeText(index);
+
+        // ConstellationText.text = bambooData.BambooDataArray[index].Name;
+        // RareText.text = bambooData.BambooDataArray[index].Rarity;
+        // float teaAmount = PlayerPrefs.GetFloat("TeaAmount", 0);
+        // resultText.text = $"{teaAmount:F1} g";
 
         // StartCoroutine(FadeIn(lineRenderer, fadeInDuration));
+    }
+
+    void ChangeText(int index)
+    {
+        ConstellationText.text = bambooData.BambooDataArray[index].Name;
+        RareText.text = bambooData.BambooDataArray[index].Rarity;
+        float teaAmount = PlayerPrefs.GetFloat("TeaAmount", 0);
+        resultText.text = $"{teaAmount:F1} g";
+
     }
 
 
