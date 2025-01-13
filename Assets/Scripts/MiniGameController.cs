@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class MinigameController : MonoBehaviour
 {
-    public QTEController qteController; // QTEの制御スクリプトへの参照
-    public int totalRounds = 5;         // ミニゲーム全体のラウンド数
-    public string resultSceneName = "ResultScene"; // 結果画面へのシーン名
+    public QTEController qteController;
+    public int totalRounds = 5;
+    public string resultSceneName = "ResultScene";
 
-    private int currentRound = 0;      // 現在のラウンド
-    private int totalScore = 0;        // 総スコア
+    private int currentRound = 0;
+    private int totalScore = 0;
 
     void Start()
     {
@@ -35,7 +35,7 @@ public class MinigameController : MonoBehaviour
     private void EndGame()
     {
         Debug.Log("Game Over! Total Score: " + totalScore);
-        PlayerPrefs.SetInt("TotalScore", totalScore); // スコアを保存
-        UnityEngine.SceneManagement.SceneManager.LoadScene(resultSceneName); // 結果画面へ
+        PlayerPrefs.SetInt("TotalScore", totalScore);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(resultSceneName);
     }
 }
