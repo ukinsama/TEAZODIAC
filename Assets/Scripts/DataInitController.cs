@@ -15,7 +15,7 @@ public class DataInitController : MonoBehaviour
         BambooData[] bambooDataArray = bambooData.BambooDataArray;
         for (int i = 0; i < bambooDataArray.Length; i++)
         {
-            bambooDataArray[i].IsAppear = false;
+            // bambooDataArray[i].IsAppear = false;
         }
 
     }

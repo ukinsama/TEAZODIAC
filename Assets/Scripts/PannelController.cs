@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PannelController : MonoBehaviour
 {
@@ -8,12 +9,24 @@ public class PannelController : MonoBehaviour
 
     // when botton is clicked, ui panel is active
     public Transform panel;
+    public Sprite unlockedSprite;
+    public Sprite lockedSprite;
 
+
+
+    void UpdatePanelSprite(Sprite newSprite)
+    {
+        Image panelImage = panel.GetComponent<Image>();
+        if (panelImage != null)
+        {
+            panelImage.sprite = newSprite;
+        }
+    }
 
 
     void OnButtonClicked()
     {
-        panel.gameObject.SetActive(true);
+        // panel.gameObject.SetActive(true);
 
     }
 
@@ -21,7 +34,23 @@ public class PannelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        panel.gameObject.SetActive(false);
+        // panel is myself
+        panel = transform;
+
+        // image = GetComponent<Image>();
+        unlockedSprite = bambooData.sprite;
+        if (bambooData.IsAppear)
+        {
+            UpdatePanelSprite(unlockedSprite);
+        }
+        else
+        {
+            UpdatePanelSprite(lockedSprite);
+        }
+
+        // DiscriptionController discriptionController = panel.GetComponent<DiscriptionController>();
+        // discriptionController.bambooData = bambooData;
+        // panel.gameObject.SetActive(false);
     }
 
     // Update is called once per frame

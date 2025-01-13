@@ -16,41 +16,41 @@ MonoBehaviour:
   - Name: Triangle
     Rarity: Common
     Description: Simple Shape.
-    BambooCount: 3
+    BambooCount: 1
     Position:
     - {x: 0, y: 6, z: 0}
     - {x: -5, y: -3, z: 0}
     - {x: 5, y: -3, z: 0}
     - {x: 0, y: 6, z: 0}
     sprite: {fileID: 21300000, guid: 92c73fdcf2fa36242998b4b9776dcb82, type: 3}
-    IsAppear: 0
+    IsAppear: 1
   - Name: Summer Triangle
     Rarity: Common
     Description: Simple and Bright.
-    BambooCount: 3
+    BambooCount: 1
     Position:
     - {x: 0, y: 5, z: 0}
     - {x: -4, y: 3, z: 0}
     - {x: 2, y: -2, z: 0}
     - {x: 0, y: 5, z: 0}
     sprite: {fileID: 21300000, guid: b3e2a0a0b7446f048a3563881436b0d9, type: 3}
-    IsAppear: 0
+    IsAppear: 1
   - Name: Cassiopeia
     Rarity: Common
     Description: 
-    BambooCount: 5
+    BambooCount: 1
     Position:
     - {x: -2, y: 0, z: 0}
     - {x: -1, y: 3, z: 0}
     - {x: 0, y: 1, z: 0}
     - {x: 0, y: 3, z: 0}
     - {x: 2, y: 2, z: 0}
-    sprite: {fileID: 0}
-    IsAppear: 0
+    sprite: {fileID: 21300000, guid: 0db39924497b5924ebca440b5ee14a11, type: 3}
+    IsAppear: 1
   - Name: Lyra
     Rarity: Uncommon
     Description: 
-    BambooCount: 5
+    BambooCount: 1
     Position:
     - {x: 0, y: 5, z: 0}
     - {x: -2, y: 3, z: 0}
@@ -58,12 +58,12 @@ MonoBehaviour:
     - {x: 0, y: 0, z: 0}
     - {x: -2, y: 1, z: 0}
     - {x: -2, y: 3, z: 0}
-    sprite: {fileID: 0}
-    IsAppear: 0
+    sprite: {fileID: 21300000, guid: 7e2ec4f62fb27164f80f78881f5e94e0, type: 3}
+    IsAppear: 1
   - Name: Cygnus
     Rarity: Uncommon
     Description: 
-    BambooCount: 5
+    BambooCount: 1
     Position:
     - {x: 0, y: 5, z: 0}
     - {x: 0, y: 0, z: 0}
@@ -72,12 +72,12 @@ MonoBehaviour:
     - {x: 4, y: 1, z: 0}
     - {x: 0, y: 0, z: 0}
     - {x: -4, y: 1, z: 0}
-    sprite: {fileID: 0}
-    IsAppear: 0
+    sprite: {fileID: 21300000, guid: 18816cdb9a1441346a316a70c84ae677, type: 3}
+    IsAppear: 1
   - Name: Orion
     Rarity: Uncommon
     Description: 
-    BambooCount: 7
+    BambooCount: 1
     Position:
     - {x: -3, y: 4, z: 0}
     - {x: -1, y: 3, z: 0}
@@ -87,12 +87,12 @@ MonoBehaviour:
     - {x: -0.5, y: -0.5, z: -0.5}
     - {x: -5, y: 2, z: 0}
     - {x: -3, y: 4, z: 0}
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 8f4fe878b5d6f004cb9de925f7cd7e85, type: 3}
     IsAppear: 1
   - Name: Ursa Major
     Rarity: Rare
     Description: 
-    BambooCount: 7
+    BambooCount: 1
     Position:
     - {x: -5, y: -1, z: 0}
     - {x: -4, y: 0, z: 0}
@@ -102,12 +102,12 @@ MonoBehaviour:
     - {x: 3, y: 3, z: 0}
     - {x: 3, y: 0.25, z: 0}
     - {x: 0, y: 0.5, z: 0}
-    sprite: {fileID: 0}
-    IsAppear: 0
+    sprite: {fileID: 21300000, guid: 569531bff3f797243bf758e61df58bf6, type: 3}
+    IsAppear: 1
   - Name: Scorpius
     Rarity: Rare
     Description: 
-    BambooCount: 9
+    BambooCount: 1
     Position:
     - {x: -3.5, y: -1, z: 0}
     - {x: -4, y: -3, z: 0}
@@ -119,12 +119,12 @@ MonoBehaviour:
     - {x: 2, y: 5, z: 0}
     - {x: 3, y: 4, z: 0}
     - {x: 4, y: 3, z: 0}
-    sprite: {fileID: 0}
-    IsAppear: 0
+    sprite: {fileID: 21300000, guid: 9eaa71c3c6aa3d646ab72ca46e5aaadf, type: 3}
+    IsAppear: 1
   - Name: Canis Major
     Rarity: Super Rare
     Description: 
-    BambooCount: 12
+    BambooCount: 1
     Position:
     - {x: -2, y: 2, z: 0}
     - {x: -3, y: 4, z: 0}
@@ -138,12 +138,12 @@ MonoBehaviour:
     - {x: -2, y: -1, z: 0}
     - {x: -1, y: -2, z: 0}
     - {x: 4, y: -2.2, z: 0}
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 6355f00de935e744aa089bc447d4d26a, type: 3}
     IsAppear: 1
   - Name: Star
     Rarity: Super Rare
     Description: You are so lucky.
-    BambooCount: 11
+    BambooCount: 1
     Position:
     - {x: 0, y: 5, z: 0}
     - {x: -1.122, y: 1.545, z: 0}
@@ -156,5 +156,5 @@ MonoBehaviour:
     - {x: 4.755, y: 1.545, z: 0}
     - {x: 1.122, y: 1.545, z: 0}
     - {x: 0, y: 5, z: 0}
-    sprite: {fileID: 0}
-    IsAppear: 0
+    sprite: {fileID: 21300000, guid: 2a73df2f824114b439ab55944242f459, type: 3}
+    IsAppear: 1
