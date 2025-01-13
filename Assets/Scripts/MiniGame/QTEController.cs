@@ -11,11 +11,13 @@ public class QTEController : MonoBehaviour
     public TextMeshProUGUI timerText;
     public MinigameController minigameController;
 
-    public float maxTime = 2f;
-    private float spawnInterval = 1.0f;
+    public float maxTime = 2f; // ボタンが存在する最大時間
+    private float spawnInterval = 1.0f; // ボタン生成間隔
     private bool isQTEActive = false;
 
     private List<GameObject> activeButtons = new List<GameObject>();
+    private int totalButtonCount = 0;
+    public int maxButtonCount = 12; // 最大ボタン数
 
     public void StartQTE()
     {
@@ -26,16 +28,15 @@ public class QTEController : MonoBehaviour
 
     private IEnumerator SpawnButtons()
     {
-        int roundCounter = 0;
-
         while (isQTEActive)
         {
-            if (roundCounter >= minigameController.GetRemainingRounds())
+            if (totalButtonCount >= maxButtonCount)
             {
                 EndQTE();
                 yield break;
             }
 
+            // ボタン生成
             GameObject newButton = Instantiate(buttonPrefab, canvasTransform);
             activeButtons.Add(newButton);
 
@@ -48,25 +49,44 @@ public class QTEController : MonoBehaviour
             buttonRect.anchoredPosition = new Vector2(randomX - canvasRect.rect.width / 2, randomY - canvasRect.rect.height / 2);
             Debug.Log($"Button positioned at: {buttonRect.anchoredPosition}");
 
-            newButton.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => OnButtonClicked(newButton));
+            // ボタンのクリックイベントを設定
+            ButtonTimer buttonTimer = newButton.AddComponent<ButtonTimer>();
+            buttonTimer.Initialize(maxTime);
 
-            roundCounter++;
-            Debug.Log($"Current Round: {roundCounter}");
+            newButton.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => OnButtonClicked(newButton, buttonTimer));
+
+            totalButtonCount++;
+            Debug.Log($"Total Buttons Generated: {totalButtonCount}");
 
             yield return new WaitForSeconds(spawnInterval);
         }
     }
 
-    private void OnButtonClicked(GameObject button)
+    private void OnButtonClicked(GameObject button, ButtonTimer buttonTimer)
     {
-        Debug.Log($"Button clicked at position: {button.transform.position}");
+        float timeRemaining = buttonTimer.GetTimeRemaining();
+        Debug.Log($"Button clicked with {timeRemaining:F2} seconds remaining.");
 
-        int score = 100;
-        minigameController.AddScore(score);
+        int scoreChange = CalculateScore(timeRemaining);
+        minigameController.AddScore(scoreChange);
 
         activeButtons.Remove(button);
         Destroy(button);
-        Debug.Log("Button destroyed after click.");
+        Debug.Log($"Button destroyed after click. Score change: {scoreChange}");
+    }
+
+    private int CalculateScore(float timeRemaining)
+    {
+        if (timeRemaining > 0)
+        {
+            // 早くクリックしたほど高得点
+            return Mathf.RoundToInt(100 * (timeRemaining / maxTime));
+        }
+        else
+        {
+            // 時間切れの場合スコアを減らす
+            return -50;
+        }
     }
 
     public void EndQTE()
@@ -86,35 +106,35 @@ public class QTEController : MonoBehaviour
         activeButtons.Clear();
         Debug.Log("All buttons have been cleared.");
 
-        minigameController.NotifyRoundComplete(); // 明確にラウンド終了を通知
+        minigameController.NotifyRoundComplete(); // ラウンド終了を通知
     }
 }
 
 
-
 public class ButtonTimer : MonoBehaviour
 {
-    private float timer;       // 経過時間
-    public float maxTime = 2f; // ボタンの寿命
+    private float timer;
+    private float maxTime;
 
-    void Start()
+    public void Initialize(float lifetime)
     {
+        maxTime = lifetime;
         timer = 0f;
     }
 
     void Update()
     {
-        timer += Time.deltaTime; // 経過時間を増加
+        timer += Time.deltaTime;
     }
 
     public bool IsTimeUp()
     {
-        return timer >= maxTime; // 寿命を超えたかどうかを返す
+        return timer >= maxTime;
     }
 
-    public void Initialize(float lifetime)
+    public float GetTimeRemaining()
     {
-        maxTime = lifetime; // ボタンの寿命を初期化
-        timer = 0f;
+        return Mathf.Max(0, maxTime - timer);
     }
 }
+

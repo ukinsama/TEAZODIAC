@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   qteController: {fileID: 1181154879}
-  totalRounds: 12
+  totalRounds: 5
   resultSceneName: ResultScene
 --- !u!4 &358274492
 Transform:
@@ -388,7 +388,8 @@ MonoBehaviour:
   canvasTransform: {fileID: 1545506507}
   timerText: {fileID: 6759835173579552040, guid: b1f34459bbfeea34eb87982946558624, type: 3}
   minigameController: {fileID: 358274491}
-  maxTime: 2
+  maxTime: 1
+  maxButtonCount: 12
 --- !u!4 &1181154880
 Transform:
   m_ObjectHideFlags: 0
@@ -568,8 +569,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
