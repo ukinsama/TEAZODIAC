@@ -9,6 +9,7 @@ public class BambooData
     public string Description;
     public int BambooCount;
     public Vector3[] Position;
+    public Sprite sprite;
 
     public bool IsAppear = false;
 

@@ -16,6 +16,7 @@ public class ResultController : MonoBehaviour
     public LineRenderer lineRenderer;
     public float fadeInDuration = 2.0f;
     public BambooDataSetting bambooData;
+    public AudioClip bambooSound;
 
 
     void Start()
@@ -33,32 +34,29 @@ public class ResultController : MonoBehaviour
 
         // int bambooCount = Mathf.Clamp(Mathf.FloorToInt(teaAmount / 10), 1, maxBamboo);
         int index = SelectIndex();
-
-        GenerateBamboo(index);
-
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.startWidth = 0.0f;
         lineRenderer.endWidth = 0.0f;
 
+        // GenerateBamboo(index);
+        StartCoroutine(GenerateBambooGradually(index));
+
+
 
         // sleep 4sec
-        StartCoroutine(WaitAndDrawConstellation(4.0f, index));
+        // StartCoroutine(WaitAndDrawConstellation(4.0f, index));
 
-        StartCoroutine(WaitAndRestartGame(10.0f));
+        // StartCoroutine(WaitAndRestartGame(10.0f));
 
         // DrawConstellation();
     }
-
-    IEnumerator WaitAndGenerateBamboo(float waitTime, int index)
-    {
-        yield return new WaitForSeconds(waitTime);
-        GenerateBamboo(index);
-    }
-
     IEnumerator WaitAndDrawConstellation(float waitTime, int index)
     {
         yield return new WaitForSeconds(waitTime);
         DrawConstellation(index);
+
+        StartCoroutine(WaitAndRestartGame(8.0f));
+
     }
 
     IEnumerator WaitAndRestartGame(float waitTime)
@@ -69,7 +67,11 @@ public class ResultController : MonoBehaviour
 
     int SelectIndex()
     {
-        return 1;
+        // 0 ~ 9
+        int index = UnityEngine.Random.Range(0, 10);
+        // return index;
+        return 8;
+
     }
 
     void GenerateBamboo(int index)
@@ -90,7 +92,7 @@ public class ResultController : MonoBehaviour
 
     IEnumerator GenerateBambooGradually(int index)
     {
-        for (int i = 0; i < bambooData.BambooDataArray[index].BambooCount; i++)
+        for (int i = 0; i < bambooData.BambooDataArray[index].Position.Length; i++)
         {
             Vector3 position = new Vector3(
                 bambooData.BambooDataArray[index].Position[i].x,
@@ -101,10 +103,39 @@ public class ResultController : MonoBehaviour
             GameObject bamboo = Instantiate(bambooPrefab, position, Quaternion.identity, bambooParent);
             bamboo.tag = "Bamboo";
 
-            yield return new WaitForSeconds(0.2f);
+            if (bambooData.BambooDataArray[index].Rarity == "Rare")
+            {
+                bamboo.GetComponent<Renderer>().material.color = Color.red;
+            }
+            else if (bambooData.BambooDataArray[index].Rarity == "Uncommon")
+            {
+                bamboo.GetComponent<Renderer>().material.color = Color.green;
+            }
+            else if (bambooData.BambooDataArray[index].Rarity == "Super Rare")
+            {
+                bamboo.GetComponent<Renderer>().material.color = Color.blue;
+            }
+            else
+            {
+                bamboo.GetComponent<Renderer>().material.color = Color.white;
+            }
+
+            AudioSource.PlayClipAtPoint(bambooSound, position);
+
+            if (i < bambooData.BambooDataArray[index].BambooCount / 2)
+            {
+                yield return new WaitForSeconds(0.7f);
+            }
+            else
+            {
+                yield return new WaitForSeconds(0.3f);
+            }
         }
         bambooData.BambooDataArray[index].IsAppear = true;
+
+        StartCoroutine(WaitAndDrawConstellation(1.5f, index));
     }
+
 
     void DrawConstellation(int index)
     {
@@ -124,13 +155,7 @@ public class ResultController : MonoBehaviour
         lineRenderer.positionCount = positions.Length - 1;
         lineRenderer.SetPositions(positions);
 
-
         ChangeText(index);
-
-        // ConstellationText.text = bambooData.BambooDataArray[index].Name;
-        // RareText.text = bambooData.BambooDataArray[index].Rarity;
-        // float teaAmount = PlayerPrefs.GetFloat("TeaAmount", 0);
-        // resultText.text = $"{teaAmount:F1} g";
 
         // StartCoroutine(FadeIn(lineRenderer, fadeInDuration));
     }

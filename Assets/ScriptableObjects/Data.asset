@@ -16,36 +16,27 @@ MonoBehaviour:
   - Name: Triangle
     Rarity: Common
     Description: Simple Shape.
-    BambooCount: 4
+    BambooCount: 3
     Position:
     - {x: 0, y: 6, z: 0}
     - {x: -5, y: -3, z: 0}
     - {x: 5, y: -3, z: 0}
     - {x: 0, y: 6, z: 0}
+    sprite: {fileID: 21300000, guid: 92c73fdcf2fa36242998b4b9776dcb82, type: 3}
     IsAppear: 0
   - Name: Summer Triangle
     Rarity: Common
     Description: Simple and Bright.
-    BambooCount: 4
+    BambooCount: 3
     Position:
     - {x: 0, y: 5, z: 0}
     - {x: -4, y: 3, z: 0}
     - {x: 2, y: -2, z: 0}
     - {x: 0, y: 5, z: 0}
-    IsAppear: 1
-  - Name: Canis Major
-    Rarity: Common
-    Description: Not just a line.
-    BambooCount: 5
-    Position:
-    - {x: -2, y: 5, z: 0}
-    - {x: 0, y: 3, z: 0}
-    - {x: 2, y: 1, z: 0}
-    - {x: 4, y: -1, z: 0}
-    - {x: 5, y: -2, z: 0}
-    IsAppear: 1
+    sprite: {fileID: 21300000, guid: b3e2a0a0b7446f048a3563881436b0d9, type: 3}
+    IsAppear: 0
   - Name: Cassiopeia
-    Rarity: Uncommon
+    Rarity: Common
     Description: 
     BambooCount: 5
     Position:
@@ -53,72 +44,102 @@ MonoBehaviour:
     - {x: -1, y: 3, z: 0}
     - {x: 0, y: 1, z: 0}
     - {x: 0, y: 3, z: 0}
-    - {x: 1, y: 5, z: 0}
-    IsAppear: 1
+    - {x: 2, y: 2, z: 0}
+    sprite: {fileID: 0}
+    IsAppear: 0
   - Name: Lyra
     Rarity: Uncommon
     Description: 
-    BambooCount: 6
+    BambooCount: 5
     Position:
     - {x: 0, y: 5, z: 0}
     - {x: -2, y: 3, z: 0}
     - {x: 0, y: 2, z: 0}
-    - {x: -2, y: 1, z: 0}
     - {x: 0, y: 0, z: 0}
+    - {x: -2, y: 1, z: 0}
     - {x: -2, y: 3, z: 0}
-    IsAppear: 1
+    sprite: {fileID: 0}
+    IsAppear: 0
   - Name: Cygnus
     Rarity: Uncommon
     Description: 
-    BambooCount: 6
+    BambooCount: 5
     Position:
     - {x: 0, y: 5, z: 0}
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: -5, z: 0}
     - {x: 0, y: 0, z: 0}
     - {x: 4, y: 1, z: 0}
+    - {x: 0, y: 0, z: 0}
     - {x: -4, y: 1, z: 0}
-    IsAppear: 1
-  - Name: Scorpius
-    Rarity: Rare
+    sprite: {fileID: 0}
+    IsAppear: 0
+  - Name: Orion
+    Rarity: Uncommon
     Description: 
     BambooCount: 7
     Position:
     - {x: -3, y: 4, z: 0}
-    - {x: -2, y: 2, z: 0}
-    - {x: 0, y: 3, z: 0}
-    - {x: 0, y: 1, z: 0}
-    - {x: 2, y: 0, z: 0}
+    - {x: -1, y: 3, z: 0}
+    - {x: 0, y: 0, z: 0}
     - {x: 3, y: -1, z: 0}
-    - {x: 4, y: -3, z: 0}
+    - {x: 1, y: -3, z: 0}
+    - {x: -0.5, y: -0.5, z: -0.5}
+    - {x: -5, y: 2, z: 0}
+    - {x: -3, y: 4, z: 0}
+    sprite: {fileID: 0}
     IsAppear: 1
   - Name: Ursa Major
     Rarity: Rare
     Description: 
     BambooCount: 7
     Position:
-    - {x: 3, y: 5.5, z: 0}
-    - {x: 3, y: 3.5, z: 0}
-    - {x: 1, y: 2.5, z: 0}
-    - {x: 0, y: 0.5, z: 0}
+    - {x: -5, y: -1, z: 0}
+    - {x: -4, y: 0, z: 0}
     - {x: -2, y: -0.5, z: 0}
-    - {x: -4, y: -2.5, z: 0}
-    - {x: -5, y: -3.5, z: 0}
+    - {x: 0, y: 0.5, z: 0}
+    - {x: 1, y: 2.5, z: 0}
+    - {x: 3, y: 3, z: 0}
+    - {x: 3, y: 0.25, z: 0}
+    - {x: 0, y: 0.5, z: 0}
+    sprite: {fileID: 0}
     IsAppear: 0
-  - Name: Orion
+  - Name: Scorpius
     Rarity: Rare
     Description: 
-    BambooCount: 8
+    BambooCount: 9
     Position:
-    - {x: -3, y: 4, z: 0}
-    - {x: -2, y: 3, z: 0}
-    - {x: -1, y: 0, z: 0}
+    - {x: -3.5, y: -1, z: 0}
+    - {x: -4, y: -3, z: 0}
+    - {x: -2, y: -4, z: 0}
     - {x: 0, y: 0, z: 0}
-    - {x: 1, y: 0, z: 0}
-    - {x: 2, y: -3, z: 0}
-    - {x: 3, y: -4, z: 0}
-    - {x: -3, y: 4, z: 0}
+    - {x: 1, y: 1, z: 0}
+    - {x: 2, y: 2, z: 0}
+    - {x: 3, y: 4, z: 0}
+    - {x: 2, y: 5, z: 0}
+    - {x: 3, y: 4, z: 0}
+    - {x: 4, y: 3, z: 0}
+    sprite: {fileID: 0}
     IsAppear: 0
+  - Name: Canis Major
+    Rarity: Super Rare
+    Description: 
+    BambooCount: 12
+    Position:
+    - {x: -2, y: 2, z: 0}
+    - {x: -3, y: 4, z: 0}
+    - {x: -4, y: 2, z: 0}
+    - {x: -2, y: 2, z: 0}
+    - {x: 0, y: 3, z: 0}
+    - {x: 2, y: 2, z: 0}
+    - {x: 0, y: 3, z: 0}
+    - {x: -2, y: -1, z: 0}
+    - {x: -4, y: -2, z: 0}
+    - {x: -2, y: -1, z: 0}
+    - {x: -1, y: -2, z: 0}
+    - {x: 4, y: -2.2, z: 0}
+    sprite: {fileID: 0}
+    IsAppear: 1
   - Name: Star
     Rarity: Super Rare
     Description: You are so lucky.
@@ -135,4 +156,5 @@ MonoBehaviour:
     - {x: 4.755, y: 1.545, z: 0}
     - {x: 1.122, y: 1.545, z: 0}
     - {x: 0, y: 5, z: 0}
+    sprite: {fileID: 0}
     IsAppear: 0

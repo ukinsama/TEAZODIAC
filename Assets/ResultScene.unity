@@ -713,6 +713,7 @@ MonoBehaviour:
   lineRenderer: {fileID: 0}
   fadeInDuration: 2
   bambooData: {fileID: 11400000, guid: 009a175b7bf51184682b574e69a3aadd, type: 2}
+  bambooSound: {fileID: 8300000, guid: 54b1d23dcdf7b4d45bd08fd9d6ae9d53, type: 3}
 --- !u!120 &1213279556
 LineRenderer:
   serializedVersion: 2
