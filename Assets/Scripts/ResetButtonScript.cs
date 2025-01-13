@@ -14,7 +14,6 @@ public class ResetButtonScript : MonoBehaviour
 
         foreach (BambooData bambooData in bambooDataSetting.BambooDataArray)
         {
-            bambooData.BambooCount = 0;
             bambooData.IsAppear = false;
         }
 
@@ -31,7 +30,6 @@ public class ResetButtonScript : MonoBehaviour
 
         foreach (BambooData bambooData in bambooDataSetting.BambooDataArray)
         {
-            bambooData.BambooCount = 1;
             bambooData.IsAppear = true;
         }
 

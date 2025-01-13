@@ -12,11 +12,11 @@ public class DataInitController : MonoBehaviour
         {
             Debug.LogError("ScriptableObject not found.");
         }
-        BambooData[] bambooDataArray = bambooData.BambooDataArray;
-        for (int i = 0; i < bambooDataArray.Length; i++)
-        {
-            // bambooDataArray[i].IsAppear = false;
-        }
+        // BambooData[] bambooDataArray = bambooData.BambooDataArray;
+        // for (int i = 0; i < bambooDataArray.Length; i++)
+        // {
+        // bambooDataArray[i].IsAppear = false;
+        // }
 
     }
 
