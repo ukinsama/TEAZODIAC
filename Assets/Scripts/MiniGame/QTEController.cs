@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+
 public class QTEController : MonoBehaviour
 {
     public GameObject buttonPrefab;
@@ -29,7 +30,7 @@ public class QTEController : MonoBehaviour
 
         while (isQTEActive)
         {
-            if (roundCounter >= minigameController.totalRounds)
+            if (roundCounter >= minigameController.GetRemainingRounds())
             {
                 EndQTE();
                 yield break;
@@ -85,7 +86,7 @@ public class QTEController : MonoBehaviour
         activeButtons.Clear();
         Debug.Log("All buttons have been cleared.");
 
-        minigameController.StartNextRound(); // MinigameController に通知
+        minigameController.NotifyRoundComplete(); // 明確にラウンド終了を通知
     }
 }
 

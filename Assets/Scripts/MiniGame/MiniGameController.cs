@@ -36,6 +36,24 @@ public class MinigameController : MonoBehaviour
         }
     }
 
+    public void NotifyRoundComplete()
+    {
+        Debug.Log($"Round {currentRound} complete.");
+        if (currentRound >= totalRounds)
+        {
+            EndGame();
+        }
+        else
+        {
+            StartNextRound();
+        }
+    }
+
+    public int GetRemainingRounds()
+    {
+        return totalRounds - currentRound;
+    }
+
     public void AddScore(int score)
     {
         totalScore += score;
@@ -59,4 +77,3 @@ public class MinigameController : MonoBehaviour
         SceneManager.LoadScene(resultSceneName);
     }
 }
-
