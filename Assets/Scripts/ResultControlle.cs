@@ -4,7 +4,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System;
-using UnityEditor.Search;
 
 public class ResultController : MonoBehaviour
 {
